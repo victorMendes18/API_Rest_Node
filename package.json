@@ -1,0 +1,32 @@
+{
+  "name": "api_rest_node",
+  "version": "1.0.0",
+  "description": "Criando API Rest com NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorMendes18/API_Rest_Node.git"
+  },
+  "keywords": [
+    "javascript",
+    "Node"
+  ],
+  "author": "Victor Matos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorMendes18/API_Rest_Node/issues"
+  },
+  "homepage": "https://github.com/victorMendes18/API_Rest_Node#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "knex": "^2.1.0",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
