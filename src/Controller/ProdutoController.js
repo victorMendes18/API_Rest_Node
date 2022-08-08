@@ -76,8 +76,30 @@ async function atualizarProduto(req, res){
 
 }
 
+async function deletarProduto(req, res){
+    try{
+        let idProduto = req.params.id;
+    
+        let validarIdProduto = await produto.validarProduto(idProduto);
+
+        if (!validarIdProduto){
+            return res.status(400).json({status: -1, mensagem: "Produto não cadastrado."});
+        }
+
+        let resposta = await produto.deletarProduto(idProduto);
+
+        return res.status(200).json(resposta);
+
+    } catch (erro){
+        let resposta = erro;
+        res.status(500).json(resposta);
+    }
+
+}
+
 module.exports = {
     getProdutos,
     postProdutos,
-    atualizarProduto
+    atualizarProduto,
+    deletarProduto
 };

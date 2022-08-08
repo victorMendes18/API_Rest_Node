@@ -74,9 +74,30 @@ async function atualizarProduto(dados, idProduto){
     }
 }
 
+async function deletarProduto(id){
+    try{
+        let resposta = await knex('produtos')
+                        .del()
+                        .where('id', id)
+                        .then((res) => {
+                            return {status: 1, mensagem: "Produto deletado com sucesso."};
+                        })
+                        .catch((erro => {
+                            console.log(erro);
+                            throw erro;
+                        }));
+        
+        return resposta;
+    } catch (erro) {
+        console.log(erro);
+        throw ({status: -1, mensagem: erro})
+    }
+}
+
 module.exports = {
     getProdutos,
     postProdutos,
     validarProduto,
-    atualizarProduto
+    atualizarProduto,
+    deletarProduto
 }
